@@ -4,17 +4,17 @@
 #include <Energia.h> 
 #include "RoveComm.h"
 #include "Adafruit_NeoPixel.h"
+#include "RoveWatchdog.h"
 
 RoveCommEthernet RoveComm;
 rovecomm_packet packet;
+RoveWatchdog    Watchdog;
 
 //timekeeping variables
 uint32_t last_update_time;
 
 //declare the Ethernet Server in the top level sketch with the requisite port ID any time you want to use RoveComm
 EthernetServer TCPServer(RC_ROVECOMM_DRIVEBOARD_PORT);
-
-enum DISPLAYSTATE {Teleop, Autonomy, Reached_Goal};
 
 #define BRIGTNESS       50
 #define AUTONOMY_COUNT  256

@@ -13,22 +13,29 @@ void setup()
 
   //update timekeeping
   last_update_time = millis();
-
-  Watchdog.attach(Estop);
-  Watchdog.start(500, DISABLE_BOARD_RESET);
+  Watchdog.attach( Estop );
+  delay(1000); 
+  Serial.println("Begin Setup");
+  Watchdog.start( 1000 );
+  delay(900);  
+  Watchdog.stop(); 
+  delay(2000);
+  Serial.println("End Setup");
+  Watchdog.start( 1000 );
+  Watchdog.clear(); 
 
   autonomy.begin();
   autonomy.show();
-  autonomy.setbrightness(BRIGTNESS);
+  autonomy.setBrightness(BRIGTNESS);
   underglow.begin();
   underglow.show();
-  underglow.setbrightness(BRIGTNESS);
+  underglow.setBrightness(BRIGTNESS);
   speaker.begin();
   speaker.show();
-  speaker.setbrightness(BRIGTNESS);
+  speaker.setBrightness(BRIGTNESS);
   interior.begin();
   interior.show();
-  interior.setbrightness(BRIGTNESS);
+  interior.setBrightness(BRIGTNESS);
 }
 
 void loop()
@@ -47,9 +54,9 @@ void loop()
           break;
         case RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_ID:
           uint8_t* displayState = (uint8_t*)packet.data;
-          switch (displayState)
+          switch (displayState[0])
             {
-              case DISPLAYSTATE.Teleop:
+              case TELEOP:
                 for( int i=0; i<autonomy.numPixels(); i++)
                 {
                   autonomy.setPixelColor(i, autonomy.Color(0,0,255));
@@ -65,7 +72,7 @@ void loop()
                   interior.show();
                 }
                 break;
-              case DISPLAYSTATE.Autonomy:
+              case AUTONOMY:
                 for( int i=0; i<autonomy.numPixels(); i++)
                 {
                   autonomy.setPixelColor(i, autonomy.Color(255,0,0));
@@ -81,7 +88,7 @@ void loop()
                   interior.show();
                 }
                 break;
-              case DISPLAYSTATE.Reached_Goal:
+              case REACHED_GOAL:
                 for( int i=0; i<autonomy.numPixels(); i++)
                 {
                   autonomy.setPixelColor(i, autonomy.Color(0,255,0));
@@ -101,4 +108,9 @@ void loop()
           break;
       }
   }
+}
+
+void Estop()
+{
+  return;
 }
