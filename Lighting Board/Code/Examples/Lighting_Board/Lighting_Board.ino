@@ -15,17 +15,17 @@ void setup()
   last_update_time = millis();
 
   autonomy.begin();
-  autonomy.show();
   autonomy.setBrightness(BRIGTNESS);
+  autonomy.show();
   underglow.begin();
-  underglow.show();
   underglow.setBrightness(BRIGTNESS);
+  underglow.show();
   speaker.begin();
-  speaker.show();
   speaker.setBrightness(BRIGTNESS);
+  speaker.show();
   interior.begin();
-  interior.show();
   interior.setBrightness(BRIGTNESS);
+  interior.show();
 }
 
 void loop()

@@ -4,7 +4,6 @@
 #include <Energia.h> 
 #include "RoveComm.h"
 #include "Adafruit_NeoPixel.h"
-#include "RoveWatchdog.h"
 
 RoveCommEthernet RoveComm;
 rovecomm_packet packet;
@@ -13,7 +12,7 @@ rovecomm_packet packet;
 uint32_t last_update_time;
 
 //declare the Ethernet Server in the top level sketch with the requisite port ID any time you want to use RoveComm
-EthernetServer TCPServer(RC_ROVECOMM_DRIVEBOARD_PORT);
+EthernetServer TCPServer(RC_ROVECOMM_MULTIMEDIABOARD_PORT);
 
 #define BRIGTNESS       50
 #define AUTONOMY_COUNT  256
@@ -27,9 +26,9 @@ EthernetServer TCPServer(RC_ROVECOMM_DRIVEBOARD_PORT);
 #define SPEAKER_PANEL		  PM_4
 #define INTERIOR_STRIP    PM_5
 
-Adafruit_NeoPixel autonomy(AUTONOMY_COUNT,AUTONOMY_PANEL);
-Adafruit_NeoPixel underglow(UNDERGLOW_COUNT,UNDERGLOW_PANEL);
-Adafruit_NeoPixel speaker(SPEAKER_COUNT,SPEAKER_PANEL);
-Adafruit_NeoPixel interior(INTERIOR_COUNT,INTERIOR_STRIP);
+Adafruit_NeoPixel autonomy(AUTONOMY_COUNT,AUTONOMY_PANEL,NEO_GRB);
+Adafruit_NeoPixel underglow(UNDERGLOW_COUNT,UNDERGLOW_PANEL,NEO_GRB);
+Adafruit_NeoPixel speaker(SPEAKER_COUNT,SPEAKER_PANEL,NEO_GRB);
+Adafruit_NeoPixel interior(INTERIOR_COUNT,INTERIOR_STRIP,NEO_GRB);
 
 #endif
