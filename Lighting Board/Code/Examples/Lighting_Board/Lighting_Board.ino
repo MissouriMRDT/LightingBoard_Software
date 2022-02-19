@@ -14,8 +14,11 @@ void setup()
   //update timekeeping
   last_update_time = millis();
 
+  pinMode(AUTONOMY_PANEL,OUTPUT);
+
   autonomy.begin();
-  autonomy.setBrightness(BRIGTNESS);
+  autonomy.setBrightness(255);
+  autonomy.clear();
   autonomy.show();
   underglow.begin();
   underglow.setBrightness(BRIGTNESS);
@@ -31,7 +34,7 @@ void setup()
 void loop()
 {
   packet = RoveComm.read();
-
+  uint32_t red = 0x00FF0000;
   if (packet.data_id != 0)
   {
     switch (packet.data_id)
@@ -44,26 +47,36 @@ void loop()
           break;
         case RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_ID:
           uint8_t* displayState = (uint8_t*)packet.data;
+          Serial.println(displayState[0]);
           switch (displayState[0])
             {
               case TELEOP:
-                for( int i=0; i<autonomy.numPixels(); i++)
+                Serial.println("Ya mum");
+                autonomy.setPixelColor(1, 0, 255, 255);
+                autonomy.show();
+                autonomy.fill(red,0,AUTONOMY_COUNT);
+                autonomy.show();
+                Serial.println("Ya mum2");
+                Serial.println(autonomy.canShow());
+                for( uint16_t i=0; i<AUTONOMY_COUNT; i++)
                 {
-                  autonomy.setPixelColor(i, autonomy.Color(0,0,255));
+                  autonomy.setPixelColor(i, red);
                   autonomy.show();
                   speaker.setPixelColor(i, speaker.Color(0,0,255));
                   speaker.show();
                   underglow.setPixelColor(i, underglow.Color(0,0,255));
                   underglow.show();
                 }
-                for( int i=0; i<interior.numPixels(); i++)
+                Serial.println("Ya mum3");
+                for( uint16_t i=0; i<interior.numPixels(); i++)
                 {
                   interior.setPixelColor(i, interior.Color(0,0,255));
                   interior.show();
                 }
+                Serial.println("Ya mum4");
                 break;
               case AUTONOMY:
-                for( int i=0; i<autonomy.numPixels(); i++)
+                for( uint16_t i=0; i<autonomy.numPixels(); i++)
                 {
                   autonomy.setPixelColor(i, autonomy.Color(255,0,0));
                   autonomy.show();
@@ -72,14 +85,14 @@ void loop()
                   underglow.setPixelColor(i, underglow.Color(255,0,0));
                   underglow.show();
                 }
-                for( int i=0; i<interior.numPixels(); i++)
+                for( uint16_t i=0; i<interior.numPixels(); i++)
                 {
                   interior.setPixelColor(i, interior.Color(255,0,0));
                   interior.show();
                 }
                 break;
               case REACHED_GOAL:
-                for( int i=0; i<autonomy.numPixels(); i++)
+                for( uint16_t i=0; i<autonomy.numPixels(); i++)
                 {
                   autonomy.setPixelColor(i, autonomy.Color(0,255,0));
                   autonomy.show();
@@ -88,7 +101,7 @@ void loop()
                   underglow.setPixelColor(i, underglow.Color(0,255,0));
                   underglow.show();
                 }
-                for( int i=0; i<interior.numPixels(); i++)
+                for( uint16_t i=0; i<interior.numPixels(); i++)
                 {
                   interior.setPixelColor(i, interior.Color(0,255,0));
                   interior.show();
