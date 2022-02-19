@@ -13,16 +13,6 @@ void setup()
 
   //update timekeeping
   last_update_time = millis();
-  Watchdog.attach( Estop );
-  delay(1000); 
-  Serial.println("Begin Setup");
-  Watchdog.start( 1000 );
-  delay(900);  
-  Watchdog.stop(); 
-  delay(2000);
-  Serial.println("End Setup");
-  Watchdog.start( 1000 );
-  Watchdog.clear(); 
 
   autonomy.begin();
   autonomy.show();
@@ -108,9 +98,4 @@ void loop()
           break;
       }
   }
-}
-
-void Estop()
-{
-  return;
 }

@@ -8,7 +8,6 @@
 
 RoveCommEthernet RoveComm;
 rovecomm_packet packet;
-RoveWatchdog    Watchdog;
 
 //timekeeping variables
 uint32_t last_update_time;
@@ -32,8 +31,5 @@ Adafruit_NeoPixel autonomy(AUTONOMY_COUNT,AUTONOMY_PANEL);
 Adafruit_NeoPixel underglow(UNDERGLOW_COUNT,UNDERGLOW_PANEL);
 Adafruit_NeoPixel speaker(SPEAKER_COUNT,SPEAKER_PANEL);
 Adafruit_NeoPixel interior(INTERIOR_COUNT,INTERIOR_STRIP);
-
-
-void Estop();
 
 #endif
