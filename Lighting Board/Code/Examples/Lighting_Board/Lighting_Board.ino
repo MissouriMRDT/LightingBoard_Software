@@ -46,18 +46,18 @@ void loop()
         case RC_MULTIMEDIABOARD_LEDPATTERNS_DATA_ID:
           break;
         case RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_ID:
-          uint8_t* displayState = (uint8_t*)packet.data;
-          Serial.println(displayState[0]);
+          //uint8_t* displayState = (uint8_t*)packet.data;
+          //Serial.println(displayState[0]);
           switch (displayState[0])
             {
               case TELEOP:
-                Serial.println("Ya mum");
-                autonomy.setPixelColor(1, 0, 255, 255);
-                autonomy.show();
-                autonomy.fill(red,0,AUTONOMY_COUNT);
-                autonomy.show();
-                Serial.println("Ya mum2");
-                Serial.println(autonomy.canShow());
+                //Serial.println("Ya mum");
+                //autonomy.setPixelColor(1, 0, 255, 255);
+                //autonomy.show();
+                //autonomy.fill(red,0,AUTONOMY_COUNT);
+                //autonomy.show();
+                //Serial.println("Ya mum2");
+                //Serial.println(autonomy.canShow());
                 for( uint16_t i=0; i<AUTONOMY_COUNT; i++)
                 {
                   autonomy.setPixelColor(i, red);
@@ -67,13 +67,13 @@ void loop()
                   underglow.setPixelColor(i, underglow.Color(0,0,255));
                   underglow.show();
                 }
-                Serial.println("Ya mum3");
+                //Serial.println("Ya mum3");
                 for( uint16_t i=0; i<interior.numPixels(); i++)
                 {
                   interior.setPixelColor(i, interior.Color(0,0,255));
                   interior.show();
                 }
-                Serial.println("Ya mum4");
+                //Serial.println("Ya mum4");
                 break;
               case AUTONOMY:
                 for( uint16_t i=0; i<autonomy.numPixels(); i++)
