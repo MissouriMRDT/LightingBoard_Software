@@ -20,7 +20,7 @@ void setup()
 
   //speaker.begin();
   //interior.begin();
-  autonomy.setBrightness(5);
+  autonomy.setBrightness(2);
   //underglow.setBrightness(20);
 }
 
@@ -45,10 +45,11 @@ void loop()
                 for( uint16_t i=0; i<AUTONOMY_COUNT; i++)
                 {
                   autonomy.setPixelColor(i, autonomy.Color(0,0,255));
-                  autonomy.show();
+                  
                   //speaker.setPixelColor(i, speaker.Color(0,0,255));
                   //speaker.show();
                 }
+                autonomy.show();
                 /*for( uint16_t i=0; i<UNDERGLOW_COUNT; i++)
                 {
                   underglow.setPixelColor(i, underglow.Color(0,0,255));
@@ -64,12 +65,12 @@ void loop()
                 for( uint16_t i=0; i<AUTONOMY_COUNT; i++)
                 {
                   autonomy.setPixelColor(i, autonomy.Color(255,0,0));
-                  autonomy.show();
                   //speaker.setPixelColor(i, speaker.Color(255,0,0));
                   //speaker.show();
                   //underglow.setPixelColor(i, underglow.Color(255,0,0));
                   //underglow.show();
                 }
+                autonomy.show();
                 /*for( uint16_t i=0; i<interior.numPixels(); i++)
                 {
                   interior.setPixelColor(i, interior.Color(255,0,0));
@@ -80,12 +81,12 @@ void loop()
                 for( uint16_t i=0; i<AUTONOMY_COUNT; i++)
                 {
                   autonomy.setPixelColor(i, autonomy.Color(0,255,0));
-                  autonomy.show();
                   //speaker.setPixelColor(i, speaker.Color(0,255,0));
                   //speaker.show();
                   //underglow.setPixelColor(i, underglow.Color(0,255,0));
                   //underglow.show();
                 }
+                autonomy.show();
                 /*for( uint16_t i=0; i<interior.numPixels(); i++)
                 {
                   interior.setPixelColor(i, interior.Color(0,255,0));
