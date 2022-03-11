@@ -29,24 +29,31 @@ void loop()
     switch (packet.data_id)
       {
         case RC_MULTIMEDIABOARD_HEADLIGHTINTENSITY_DATA_ID:
+        {
           uint8_t* headlightEnable = (uint8_t*)packet.data;
           if (headlightEnable > 0)
             digitalWrite(HEADLIGHT_TOGGLE, HIGH);
           else
             digitalWrite(HEADLIGHT_TOGGLE, LOW);
           break;
+        }
         case RC_MULTIMEDIABOARD_LEDRGB_DATA_ID:
+        {
           uint8_t* LEDRGB = (uint8_t*)packet.data;
           for( uint16_t i=0; i<AUTONOMY_COUNT; i++)
           {
-            autonomy.setPixelColor(i, LEDRGB[0], LEDRGB[1], LEDRGB[2]);
+            autonomy.setPixelColor(i, autonomy.Color(LEDRGB[0], LEDRGB[1], LEDRGB[2]));
           }
           autonomy.show();
           break;
+        }
         case RC_MULTIMEDIABOARD_LEDPATTERNS_DATA_ID:
+        {
           uint8_t* LEDPattern = (uint8_t*)packet.data;
           break;
+        }
         case RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_ID:
+        {
           uint8_t* displayState = (uint8_t*)packet.data;
           switch (displayState[0])
             {
@@ -73,10 +80,12 @@ void loop()
                 break;
             }
           break;
-        case RC_MULTIMEDIABOARD_BRIGHTNESS_DATA_ID;
+        }
+        /*case RC_MULTIMEDIABOARD_BRIGHTNESS_DATA_ID;
           uint8_t* brightness = (uint8_t*)packet.data;
           autonomy.setBrightness(brightness[0]);
-          break;
+          autonomy.show();
+          break;*/
       }
   }
 }
