@@ -14,7 +14,7 @@ uint32_t last_update_time;
 //declare the Ethernet Server in the top level sketch with the requisite port ID any time you want to use RoveComm
 EthernetServer TCPServer(RC_ROVECOMM_MULTIMEDIABOARD_PORT);
 
-#define BRIGTNESS       130 //max at 130
+#define BRIGHTNESS       130 //max at 130
 #define AUTONOMY_COUNT  647 // 256+256+135
 
 #define HEADLIGHT_TOGGLE  PE_3  

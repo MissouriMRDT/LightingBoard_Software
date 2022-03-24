@@ -16,7 +16,7 @@ void setup()
 
   
   autonomy.begin();
-  autonomy.setBrightness(BRIGTNESS);
+  autonomy.setBrightness(BRIGHTNESS);
   pinMode(HEADLIGHT_TOGGLE, OUTPUT);
   digitalWrite(HEADLIGHT_TOGGLE, LOW);
 }
@@ -81,11 +81,19 @@ void loop()
             }
           break;
         }
-        /*case RC_MULTIMEDIABOARD_BRIGHTNESS_DATA_ID;
+        case RC_MULTIMEDIABOARD_BRIGHTNESS_DATA_ID:
           uint8_t* brightness = (uint8_t*)packet.data;
-          autonomy.setBrightness(brightness[0]);
-          autonomy.show();
-          break;*/
+          if(brightness[0]>=BRIGHTNESS)
+          {
+            autonomy.setBrightness(BRIGHTNESS);
+            autonomy.show();
+          }
+          else 
+          {
+            autonomy.setBrightness(brightness[0]);
+            autonomy.show();
+          }
+          break;
       }
   }
 }
