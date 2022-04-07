@@ -50,7 +50,7 @@ void loop()
         case RC_MULTIMEDIABOARD_LEDPATTERNS_DATA_ID:
         {
           uint8_t* LEDPattern = (uint8_t*)packet.data;
-          switch LEDPattern[0]
+          switch (LEDPattern[0])
           {
             case MRDT:
               for(uint16_t i=0; i<256; i++)
@@ -62,7 +62,7 @@ void loop()
             case BELGIUM:
               for(uint16_t i=0; i<256; i++)
               {
-                autonomy.setPixelColor(i, BELGIUM[i]);
+                autonomy.setPixelColor(i, BELGIUM_FLAG[i]);
               }
               autonomy.show();
               break;
@@ -83,7 +83,7 @@ void loop()
             case DOTA:
               for(uint16_t i=0; i<256; i++)
               {
-                autonomy.setPixelColor(i, DOTA[i]);
+                autonomy.setPixelColor(i, DOTES[i]);
               }
               autonomy.show();
               break;
