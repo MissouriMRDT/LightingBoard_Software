@@ -50,6 +50,58 @@ void loop()
         case RC_MULTIMEDIABOARD_LEDPATTERNS_DATA_ID:
         {
           uint8_t* LEDPattern = (uint8_t*)packet.data;
+          switch LEDPattern[0]
+          {
+            case MRDT:
+              for(uint16_t i=0; i<256; i++)
+              {
+                autonomy.setPixelColor(i, LOGO[i]);
+              }
+              autonomy.show();
+              break;
+            case BELGIUM:
+              for(uint16_t i=0; i<256; i++)
+              {
+                autonomy.setPixelColor(i, BELGIUM[i]);
+              }
+              autonomy.show();
+              break;
+            case MERICA:
+              for(uint16_t i=0; i<256; i++)
+              {
+                autonomy.setPixelColor(i, FLAG[i]);
+              }
+              autonomy.show();
+              break;
+            case DIRT:
+              for(uint16_t i=0; i<256; i++)
+              {
+                autonomy.setPixelColor(i, DIRT_BLOCK[i]);
+              }
+              autonomy.show();
+              break;
+            case DOTA:
+              for(uint16_t i=0; i<256; i++)
+              {
+                autonomy.setPixelColor(i, DOTA[i]);
+              }
+              autonomy.show();
+              break;
+            case MCD:
+              for(uint16_t i=0; i<256; i++)
+              {
+                autonomy.setPixelColor(i, MCDONALD[i]);
+              }
+              autonomy.show();
+              break;
+            case WINDOWS:
+              for(uint16_t i=0; i<256; i++)
+              {
+                autonomy.setPixelColor(i, MSW[i]);
+              }
+              autonomy.show();
+              break;
+          }
           break;
         }
         case RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_ID:
@@ -98,4 +150,3 @@ void loop()
   }
 }
 
-//mrdt logo, belgum, merica, minecraft blocks, dota logo, mcdonalds, windows logo,
