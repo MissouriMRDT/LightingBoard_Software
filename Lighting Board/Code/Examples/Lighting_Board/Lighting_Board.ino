@@ -9,11 +9,6 @@ void setup()
   delay(100);
 
   Serial.println("Started Lighing Board");
-    
-
-  //update timekeeping
-  last_update_time = millis();
-
   
   autonomy.begin();
   autonomy.setBrightness(BRIGHTNESS);
@@ -53,49 +48,49 @@ void loop()
           switch (LEDPattern[0])
           {
             case MRDT:
-              for(uint16_t i=0; i<256; i++)
+              for(uint16_t i=154; i<(154+256); i++)
               {
                 autonomy.setPixelColor(i, LOGO[i]);
               }
               autonomy.show();
               break;
             case BELGIUM:
-              for(uint16_t i=0; i<256; i++)
+              for(uint16_t i=154; i<(154+256); i++)
               {
                 autonomy.setPixelColor(i, BELGIUM_FLAG[i]);
               }
               autonomy.show();
               break;
             case MERICA:
-              for(uint16_t i=0; i<256; i++)
+              for(uint16_t i=154; i<(154+256); i++)
               {
                 autonomy.setPixelColor(i, FLAG[i]);
               }
               autonomy.show();
               break;
             case DIRT:
-              for(uint16_t i=0; i<256; i++)
+              for(uint16_t i=154; i<(154+256); i++)
               {
                 autonomy.setPixelColor(i, DIRT_BLOCK[i]);
               }
               autonomy.show();
               break;
             case DOTA:
-              for(uint16_t i=0; i<256; i++)
+              for(uint16_t i=154; i<(154+256); i++)
               {
                 autonomy.setPixelColor(i, DOTES[i]);
               }
               autonomy.show();
               break;
             case MCD:
-              for(uint16_t i=0; i<256; i++)
+              for(uint16_t i=154; i<(154+256); i++)
               {
                 autonomy.setPixelColor(i, MCDONALD[i]);
               }
               autonomy.show();
               break;
             case WINDOWS:
-              for(uint16_t i=0; i<256; i++)
+              for(uint16_t i=154; i<(154+256); i++)
               {
                 autonomy.setPixelColor(i, MSW[i]);
               }
