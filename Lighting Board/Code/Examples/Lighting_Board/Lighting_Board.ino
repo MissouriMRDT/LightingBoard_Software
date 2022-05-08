@@ -31,7 +31,7 @@ void loop()
         case RC_MULTIMEDIABOARD_HEADLIGHTINTENSITY_DATA_ID:
         {
           uint8_t* headlightEnable = (uint8_t*)packet.data;
-          if (headlightEnable > 0)
+          if (headlightEnable[0] > 0)
             digitalWrite(HEADLIGHT_TOGGLE, HIGH);
           else
             digitalWrite(HEADLIGHT_TOGGLE, LOW);
@@ -135,16 +135,16 @@ void loop()
         }
         case RC_MULTIMEDIABOARD_BRIGHTNESS_DATA_ID:
           uint8_t* brightness = (uint8_t*)packet.data;
-          if(brightness[0]>=BRIGHTNESS)
-          {
-            autonomy.setBrightness(BRIGHTNESS);
-            autonomy.show();
-          }
-          else 
-          {
-            autonomy.setBrightness(brightness[0]);
-            autonomy.show();
-          }
+          //if(brightness[0]>=BRIGHTNESS)
+          //{
+          //  autonomy.setBrightness(BRIGHTNESS);
+          //  autonomy.show();
+          //}
+          //else 
+          //{
+           autonomy.setBrightness(brightness[0]);
+          autonomy.show();
+          //}
           break;
       }
   }
