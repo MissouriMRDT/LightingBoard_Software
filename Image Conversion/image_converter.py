@@ -29,11 +29,11 @@ def print_image(file_path: str):
         for x in range(16):
             # As the array operates in a snake pattern we have to
             # switch directions every other row
-            if y % 2 != 0:
-                x_val = 15 - x
+            if x % 2 != 0:
+                y_val = 15 - y
             else:
-                x_val = x
-            r, g, b = rgb_im.getpixel((x_val, y))
+                y_val = y
+            r, g, b = rgb_im.getpixel((x, y_val))
             matrix.append(getIntfromRGB((r, g, b)))
 
     print(matrix)
