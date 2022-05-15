@@ -9,7 +9,6 @@ def getIntfromRGB(rgb):
     RGBint = (red << 16) + (green << 8) + blue
     return RGBint
 
-
 def print_image(file_path: str):
     im = Image.open(file_path)
 
@@ -25,8 +24,8 @@ def print_image(file_path: str):
     rgb_im = Image.new("RGB", im.size, (0, 0, 0))
     rgb_im.paste(im, mask=im.split()[3])  # 3 is the alpha channel
 
-    for y in range(16):
-        for x in range(16):
+    for x in range(16):
+        for y in range(16):
             # As the array operates in a snake pattern we have to
             # switch directions every other row
             if x % 2 != 0:

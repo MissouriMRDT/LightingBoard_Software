@@ -48,51 +48,51 @@ void loop()
           switch (LEDPattern[0])
           {
             case MRDT:
-              for(uint16_t i=154; i<(154+256); i++)
+              for(uint16_t i=131; i<(131+256); i++)
               {
-                autonomy.setPixelColor(i, LOGO[i]);
+                autonomy.setPixelColor(i, LOGO[i-131]);
               }
               autonomy.show();
               break;
             case BELGIUM:
-              for(uint16_t i=154; i<(154+256); i++)
+              for(uint16_t i=131; i<(131+256); i++)
               {
-                autonomy.setPixelColor(i, BELGIUM_FLAG[i]);
+                autonomy.setPixelColor(i, BELGIUM_FLAG[i-131]);
               }
               autonomy.show();
               break;
             case MERICA:
-              for(uint16_t i=154; i<(154+256); i++)
+              for(uint16_t i=131; i<(131+256); i++)
               {
-                autonomy.setPixelColor(i, FLAG[i]);
+                autonomy.setPixelColor(i, FLAG[i-131]);
               }
               autonomy.show();
               break;
             case DIRT:
-              for(uint16_t i=154; i<(154+256); i++)
+              for(uint16_t i=131; i<(131+256); i++)
               {
-                autonomy.setPixelColor(i, DIRT_BLOCK[i]);
+                autonomy.setPixelColor(i, DIRT_BLOCK[i-131]);
               }
               autonomy.show();
               break;
             case DOTA:
-              for(uint16_t i=154; i<(154+256); i++)
+              for(uint16_t i=131; i<(131+256); i++)
               {
-                autonomy.setPixelColor(i, DOTES[i]);
+                autonomy.setPixelColor(i, DOTES[i-131]);
               }
               autonomy.show();
               break;
             case MCD:
-              for(uint16_t i=154; i<(154+256); i++)
+              for(uint16_t i=131; i<(131+256); i++)
               {
-                autonomy.setPixelColor(i, MCDONALD[i]);
+                autonomy.setPixelColor(i, MCDONALD[i-131]);
               }
               autonomy.show();
               break;
             case WINDOWS:
-              for(uint16_t i=154; i<(154+256); i++)
+              for(uint16_t i=131; i<(131+256); i++)
               {
-                autonomy.setPixelColor(i, MSW[i]);
+                autonomy.setPixelColor(i, MSW[i-131]);
               }
               autonomy.show();
               break;
