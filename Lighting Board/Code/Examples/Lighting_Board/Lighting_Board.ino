@@ -119,11 +119,21 @@ void loop()
                 autonomy.show();
                 break;
               case REACHED_GOAL:
-                for( uint16_t i=0; i<AUTONOMY_COUNT; i++)
+                for(int i = 0; i < 5; i++)
                 {
-                  autonomy.setPixelColor(i, autonomy.Color(0,255,0));
+                  for( uint16_t i=0; i<AUTONOMY_COUNT; i++)
+                  {
+                    autonomy.setPixelColor(i, autonomy.Color(0,255,0));
+                  }
+                  autonomy.show();
+                  delay(500);
+                  for( uint16_t i=0; i<AUTONOMY_COUNT; i++)
+                  {
+                    autonomy.setPixelColor(i, autonomy.Color(0,0,0));
+                  }
+                  autonomy.show();
+                  delay(500);
                 }
-                autonomy.show();
                 break;
             }
           break;
