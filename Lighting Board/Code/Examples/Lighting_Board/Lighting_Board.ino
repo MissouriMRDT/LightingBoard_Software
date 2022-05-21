@@ -140,16 +140,16 @@ void loop()
         }
         case RC_MULTIMEDIABOARD_BRIGHTNESS_DATA_ID:
           uint8_t* brightness = (uint8_t*)packet.data;
-          //if(brightness[0]>=BRIGHTNESS)
-          //{
-          //  autonomy.setBrightness(BRIGHTNESS);
-          //  autonomy.show();
-          //}
-          //else 
-          //{
+          if(brightness[0]>=BRIGHTNESS)
+          {
+            autonomy.setBrightness(BRIGHTNESS);
+            autonomy.show();
+          }
+          else 
+          {
            autonomy.setBrightness(brightness[0]);
           autonomy.show();
-          //}
+          }
           break;
       }
   }
