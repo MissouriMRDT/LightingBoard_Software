@@ -24,10 +24,7 @@ void loop()
         case RC_MULTIMEDIABOARD_LEDRGB_DATA_ID:
         {
             uint8_t *LEDRGB = (uint8_t *)packet.data;
-            for (uint16_t i = 0; i < AUTONOMY_COUNT; i++)
-            {
-                autonomy.setPixelColor(i, autonomy.Color(LEDRGB[0], LEDRGB[1], LEDRGB[2]));
-            }
+            autonomy.fill(autonomy.Color(LEDRGB[0], LEDRGB[1], LEDRGB[2]));
             autonomy.show();
             break;
         }
@@ -37,32 +34,20 @@ void loop()
             switch (displayState[0])
             {
             case TELEOP:
-                for (uint16_t i = 0; i < AUTONOMY_COUNT; i++)
-                {
-                    autonomy.setPixelColor(i, autonomy.Color(0, 0, 255));
-                }
+                autonomy.fill(autonomy.Color(0, 0, 255));
                 autonomy.show();
                 break;
             case AUTONOMY:
-                for (uint16_t i = 0; i < AUTONOMY_COUNT; i++)
-                {
-                    autonomy.setPixelColor(i, autonomy.Color(255, 0, 0));
-                }
+                autonomy.fill(autonomy.Color(255, 0, 0));
                 autonomy.show();
                 break;
             case REACHED_GOAL:
                 for (int i = 0; i < 5; i++)
                 {
-                    for (uint16_t i = 0; i < AUTONOMY_COUNT; i++)
-                    {
-                        autonomy.setPixelColor(i, autonomy.Color(0, 255, 0));
-                    }
+                    autonomy.fill(autonomy.Color(0, 255, 0));
                     autonomy.show();
                     delay(500);
-                    for (uint16_t i = 0; i < AUTONOMY_COUNT; i++)
-                    {
-                        autonomy.setPixelColor(i, autonomy.Color(0, 0, 0));
-                    }
+                    autonomy.clear(); //Sets pixels to black
                     autonomy.show();
                     delay(500);
                 }
