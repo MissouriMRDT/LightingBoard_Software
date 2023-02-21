@@ -8,8 +8,6 @@ void setup()
     RoveComm.begin(RC_MULTIMEDIABOARD_FOURTHOCTET, &TCPServer, RC_ROVECOMM_MULTIMEDIABOARD_MAC);
     delay(100);
 
-    Serial.println("Multimedia On");
-
     autonomy.begin();
     autonomy.setBrightness(BRIGHTNESS);
 }
@@ -23,12 +21,10 @@ void loop()
         switch(packet.data_id)
         {
             case RC_MULTIMEDIABOARD_LEDRGB_DATA_ID:
-                Serial.println("RGB Input");
                 autonomy.fill(autonomy.Color(data[0], data[1], data[2]));
                 break;
 
             case RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_ID:
-                Serial.println("State Display");
                 switch (data[0])
                 {
                     case TELEOP:
@@ -54,7 +50,6 @@ void loop()
                 break;
 
             case RC_MULTIMEDIABOARD_BRIGHTNESS_DATA_ID:
-                Serial.println("Brightness");
                 if(data[0] >= BRIGHTNESS)
                 {
                     autonomy.setBrightness(BRIGHTNESS);
