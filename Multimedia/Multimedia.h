@@ -7,7 +7,7 @@
 RoveCommEthernet RoveComm;
 rovecomm_packet packet;
 uint8_t* data;
-EthernetServer TCPServer(RC_ROVECOMM_MULTIMEDIABOARD_PORT);
+EthernetServer TCPServer(RC_ROVECOMM_ETHERNET_TCP_PORT);
 
 #define BRIGHTNESS      130
 #define AUTONOMY_COUNT  256
